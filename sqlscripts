@@ -4,7 +4,7 @@ FROM table_name
 WHERE condition;
 
 
-CREATE VIEW_2 view_name AS
+CREATE VIEW view_name_2 AS
 SELECT column1, column2, ...
 FROM table_name
 WHERE condition;
