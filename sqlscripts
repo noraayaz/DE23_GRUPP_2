@@ -1,10 +1,36 @@
-CREATE VIEW view_name AS
-SELECT column1, column2, ...
-FROM table_name
-WHERE condition;
+-- Script name: YYYY-MM-DD-HHMMSS-CreateInvoiceLineMargins.sql
 
+-- Check if the view already exists and drop it if it does
+IF OBJECT_ID('dbo.InvoiceLineMargins', 'V') IS NOT NULL
+    DROP VIEW dbo.InvoiceLineMargins;
+GO
 
-CREATE VIEW view_name_2 AS
-SELECT column1, column2, ...
-FROM table_name
-WHERE condition;
+-- Create the view
+CREATE VIEW dbo.InvoiceLineMargins AS
+SELECT
+    InvoiceID,
+    CustomerName,
+    InvoiceDate,
+    ProductDescription,
+    LineProfit
+FROM
+    InvoiceDetails
+GO
+
+-- Script name: YYYY-MM-DD-HHMMSS-UpdatePhoneFaxNumbers.sql
+
+UPDATE Application.People
+SET PhoneNumber = REPLACE(PhoneNumber, '(415)', '(515)'),
+    FaxNumber = REPLACE(FaxNumber, '(415)', '(515)')
+WHERE PhoneNumber LIKE '%(415)%' OR FaxNumber LIKE '%(415)%';
+
+UPDATE Application.People
+SET PhoneNumber = REPLACE(PhoneNumber, '(252)', '(992)'),
+    FaxNumber = REPLACE(FaxNumber, '(252)', '(992)')
+WHERE PhoneNumber LIKE '%(252)%' OR FaxNumber LIKE '%(252)%';
+
+UPDATE Application.People
+SET PhoneNumber = REPLACE(PhoneNumber, '(314)', '(316)'),
+    FaxNumber = REPLACE(FaxNumber, '(314)', '(316)')
+WHERE PhoneNumber LIKE '%(314)%' OR FaxNumber LIKE '%(314)%';
+
