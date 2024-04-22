@@ -3,3 +3,8 @@ SELECT column1, column2, ...
 FROM table_name
 WHERE condition;
 
+
+CREATE VIEW_2 view_name AS
+SELECT column1, column2, ...
+FROM table_name
+WHERE condition;
