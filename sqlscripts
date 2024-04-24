@@ -34,3 +34,4 @@ SET PhoneNumber = REPLACE(PhoneNumber, '(314)', '(316)'),
     FaxNumber = REPLACE(FaxNumber, '(314)', '(316)')
 WHERE PhoneNumber LIKE '%(314)%' OR FaxNumber LIKE '%(314)%';
 
+GO
